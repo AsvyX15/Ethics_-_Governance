@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Legislation &amp; Policy</title>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Sora:wght@400;600;700;800&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family:"Plus Jakarta Sans",system-ui,sans-serif; color:#3b4660; background:#fff; -webkit-font-smoothing:antialiased; }
+  h1,h2,h3,h4 { font-family:"Sora","Plus Jakarta Sans",sans-serif; color:#0b1730; margin:0; letter-spacing:-0.01em; }
+  a { color:inherit; text-decoration:none; }
+  .wrap { max-width:1240px; margin:0 auto; padding:0 48px; }
+  :root { --ink:#0b1730; --muted:#52607c; --blue:#0a4a8f; --line:#dfe6f1; }
+
+  .sec-badge { display:inline-flex; align-items:center; gap:9px; background:#e6f4ea; border:1px solid #bfe3cc; border-radius:999px; padding:7px 16px 7px 10px; margin-bottom:20px; }
+  .sec-badge .dot { width:6px; height:6px; border-radius:50%; background:#157a3f; opacity:.7; }
+  .sec-badge span { font-family:"Plus Jakarta Sans",sans-serif; font-size:11.5px; font-weight:700; letter-spacing:.14em; text-transform:uppercase; color:#157a3f; }
+  .sec-sub { font-size:15.5px; color:#475066; line-height:1.7; max-width:560px; }
+</style>
+<style>
+  /* ── Right-side animated visual ── */
+  .leg-head-row {
+    display:grid; grid-template-columns:1fr 380px; gap:48px; align-items:center; margin-bottom:36px;
+  }
+
+  .leg-visual {
+    position:relative; height:320px; margin-left:40px;
+  }
+
+  /* Glowing orb background */
+  .lv-orb {
+    position:absolute; top:50%; left:50%; transform:translate(-50%,-50%);
+    width:220px; height:220px; border-radius:50%;
+    background:radial-gradient(circle, rgba(21,122,63,.12) 0%, transparent 70%);
+    animation:orbPulse 4s ease-in-out infinite;
+  }
+  @keyframes orbPulse {
+    0%,100% { transform:translate(-50%,-50%) scale(1); opacity:.7; }
+    50%      { transform:translate(-50%,-50%) scale(1.15); opacity:1; }
+  }
+
+  /* Floating document cards */
+  .lv-doc {
+    position:absolute;
+    background:#fff;
+    border:1px solid #e5e7eb;
+    border-radius:12px;
+    padding:14px 16px;
+    width:140px;
+    box-shadow:0 8px 24px -8px rgba(10,74,143,.15);
+    display:flex; flex-direction:column; gap:7px;
+  }
+  .doc1 { top:10px; left:10px; animation:floatA 5s ease-in-out infinite; }
+  .doc2 { top:20px; right:0; animation:floatB 5.5s ease-in-out infinite 0.6s; }
+
+  @keyframes floatA {
+    0%,100% { transform:translateY(0px) rotate(-1deg); }
+    50%      { transform:translateY(-10px) rotate(0deg); }
+  }
+  @keyframes floatB {
+    0%,100% { transform:translateY(0px) rotate(1deg); }
+    50%      { transform:translateY(-8px) rotate(0deg); }
+  }
+
+  .lv-doc-bar {
+    height:7px; border-radius:4px; background:#e5e7eb;
+  }
+  .lv-doc-bar.b1 { width:100%; background:#d1fae5; }
+  .lv-doc-bar.b2 { width:80%; }
+  .lv-doc-bar.b3 { width:60%; }
+  .lv-doc-chip {
+    display:inline-block; font-size:9px; font-weight:800;
+    letter-spacing:.1em; padding:3px 8px; border-radius:5px;
+    align-self:flex-start; margin-top:2px;
+  }
+  .lv-doc-chip.green { background:#e6f4ea; color:#157a3f; border:1px solid #bfe3cc; }
+  .lv-doc-chip.amber { background:#fef3e0; color:#9b5a0a; border:1px solid #f4d9a8; }
+
+  /* Central shield */
+  .lv-shield {
+    position:absolute; top:50%; left:50%; transform:translate(-50%,-50%);
+    width:72px; height:72px; border-radius:50%;
+    background:#fff;
+    border:2px solid #bfe3cc;
+    display:flex; align-items:center; justify-content:center;
+    color:#157a3f;
+    box-shadow:0 0 0 8px rgba(21,122,63,.08), 0 8px 24px -8px rgba(21,122,63,.25);
+    animation:shieldPop 4s ease-in-out infinite;
+    z-index:2;
+  }
+  @keyframes shieldPop {
+    0%,100% { box-shadow:0 0 0 8px rgba(21,122,63,.08), 0 8px 24px -8px rgba(21,122,63,.25); }
+    50%      { box-shadow:0 0 0 14px rgba(21,122,63,.06), 0 8px 24px -8px rgba(21,122,63,.35); }
+  }
+
+  /* Floating tags */
+  .lv-tag {
+    position:absolute;
+    background:#fff; border:1px solid #e5e7eb;
+    border-radius:999px; padding:6px 12px;
+    font-size:11px; font-weight:700; color:#374151;
+    box-shadow:0 4px 12px -4px rgba(10,74,143,.12);
+    white-space:nowrap;
+  }
+  .tag1 { bottom:30px; left:0;   animation:floatA 6s ease-in-out infinite 0.2s; color:#157a3f; border-color:#bfe3cc; }
+  .tag2 { bottom:60px; right:10px; animation:floatB 5s ease-in-out infinite 1s; color:#0a4a8f; border-color:#cfe1f4; }
+  .tag3 { bottom:10px; right:40px; animation:floatA 6.5s ease-in-out infinite 0.8s; color:#6b7280; }
+
+  /* SVG connecting lines */
+  .lv-lines {
+    position:absolute; inset:0; width:100%; height:100%; pointer-events:none;
+  }
+
+  @media (max-width:900px) { .leg-head-row { grid-template-columns:1fr; } .leg-visual { display:none; } }
+
+  /* ── Legislation & Policy section ── */
+  .leg-section { padding:32px 0 96px; border-top:1px solid #dfe6f1; }
+
+  .leg-head-row {
+    display:grid; grid-template-columns:1fr auto; gap:40px; align-items:end; margin-bottom:36px;
+  }
+  .leg-meta { text-align:right; font-family:"Plus Jakarta Sans",sans-serif; font-size:13px; color:var(--muted); line-height:1.6; }
+  .leg-meta b { display:block; font-size:15px; font-weight:700; color:var(--ink); }
+
+  /* Larger heading to match screenshot */
+  .leg-title {
+    font-family:"Sora",sans-serif;
+    font-size:clamp(30px, 3.8vw, 46px);
+    font-weight:800; line-height:1.05;
+    letter-spacing:-0.03em;
+    color:#0b1730; margin:14px 0 12px;
+  }
+  .leg-title em {
+    font-style:normal;
+    color:#1565c0; /* flat blue, not gradient — matches screenshot */
+  }
+
+  .leg-filter {
+    padding:9px 18px; border:1.5px solid #dfe6f1; border-radius:999px;
+    font-family:"Plus Jakarta Sans",sans-serif;
+    font-size:13.5px; font-weight:600; color:#6b7280; background:#fff;
+    cursor:pointer; transition:all .15s ease;
+  }
+  .leg-filter:hover { color:#0b1730; border-color:#0b1730; }
+  .leg-filter.active { background:#0b2463; color:#fff; border-color:#0b2463; }
+
+  /* Cards */
+  .legcard {
+    background:#fff; border:1px solid #e5e7eb; border-radius:16px;
+    padding:24px 24px 20px; display:flex; flex-direction:column; gap:10px;
+    transition:transform .3s, box-shadow .3s, border-color .3s;
+  }
+  .legcard:hover { transform:translateY(-4px); box-shadow:0 16px 40px -16px rgba(10,74,143,.18); border-color:#0a4a8f; }
+  .legcard-top { display:flex; justify-content:space-between; align-items:center; margin-bottom:2px; }
+
+  .legbadge {
+    font-family:"Plus Jakarta Sans",sans-serif;
+    font-size:11px; font-weight:800; letter-spacing:.1em; text-transform:uppercase;
+    padding:5px 11px; border-radius:7px;
+  }
+  .legbadge.public { background:#e6f4ea; color:#157a3f; border:1px solid #bfe3cc; }
+  .legbadge.internal { background:#fef3e0; color:#9b5a0a; border:1px solid #f4d9a8; }
+
+  .legref {
+    font-family:"Plus Jakarta Sans",sans-serif;
+    font-size:11.5px; color:#9ca3af; letter-spacing:.05em;
+  }
+
+  /* Acronym — teal monospace like screenshot */
+  .legacro {
+    font-family:"Plus Jakarta Sans",monospace;
+    font-size:13px; font-weight:700; color:#0e7585;
+    letter-spacing:.06em; margin-bottom:2px;
+  }
+
+  .legcard h3 {
+    font-family:"Sora",sans-serif;
+    font-size:19px; line-height:1.25; font-weight:700;
+    color:#0b1730; margin:0;
+  }
+  /* The teal subtitle part (e.g. "— Communications & Multimedia Industry") */
+  .legcard h3 .leg-sub { color:#1565c0; font-weight:600; }
+
+  .legcard p {
+    font-size:14.5px; color:#6b7280; line-height:1.65; margin:0; flex:1;
+  }
+
+  .legactions {
+    display:flex; justify-content:space-between; align-items:center;
+    padding-top:14px; border-top:1px dashed #e5e7eb; margin-top:8px;
+  }
+  .legopen {
+    display:inline-flex; align-items:center; gap:6px;
+    color:#0e7585; font-weight:700; font-size:13.5px;
+    transition:gap .2s;
+  }
+  .legcard:hover .legopen { gap:9px; }
+  .legmeta-txt { font-size:12.5px; color:#9ca3af; }
+
+  .leglock {
+    width:26px; height:26px; border-radius:7px; background:#f0fafa;
+    display:inline-flex; align-items:center; justify-content:center; color:#0e7585;
+    flex-shrink:0;
+  }
+
+  @media (max-width:1080px) { #legcards { grid-template-columns:repeat(2,1fr) !important; } }
+  @media (max-width:680px)  { #legcards { grid-template-columns:1fr !important; } .leg-head-row { grid-template-columns:1fr; } }
+</style>
+
+<!-- LEGISLATION & POLICY -->
+<section class="leg-section" id="legislation">
+  <div class="wrap">
+
+    <!-- Badge -->
+    <div class="sec-badge"><span class="dot"></span><span>Legislation &amp; Policy</span></div>
+
+    <!-- Heading -->
+    <div style="margin-bottom:32px;">
+      <h2 class="leg-title">Key references for <em>compliant</em><br>implementation.</h2>
+      <p class="sec-sub" style="margin:0">Legislation, policies and codes that anchor responsible practice — from national law to internal guidance.</p>
+    </div>
+
+    <!-- Cards + Visual side by side -->
+    <div style="display:grid; grid-template-columns:1fr 300px; gap:24px; align-items:start;">
+
+    <!-- Filters -->
+    <!-- Cards + Visual side by side -->
+    <div style="display:grid; grid-template-columns:1fr 300px; gap:24px; align-items:start;">
+
+    <div style="display:flex;gap:8px;flex-wrap:wrap;margin-bottom:28px; grid-column:1/-1">
+      <button class="leg-filter active" data-f="all"    onclick="filterCards(this)">All references</button>
+      <button class="leg-filter"        data-f="public" onclick="filterCards(this)">Public</button>
+      <button class="leg-filter"        data-f="data"   onclick="filterCards(this)">Data &amp; Privacy</button>
+    </div>
+
+    <!-- Cards -->
+    <!-- Cards grid (left column) -->
+    <div style="display:grid;grid-template-columns:1fr;gap:18px;" id="legcards">
+
+      <!-- LP-01 -->
+      <article class="legcard" data-tags="public data">
+        <div class="legcard-top">
+          <span class="legbadge public">Public · Statute</span>
+          <span class="legref">REF / LP-01</span>
+        </div>
+        <span class="legacro">PDPA</span>
+        <h3>Personal Data Protection Act</h3>
+        <p>National legislation governing the collection, processing, and protection of personal data — ensuring privacy and data security across organisations.</p>
+        <div class="legactions">
+          <a class="legopen">Open reference
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M7 17L17 7M9 7h8v8"/></svg>
+          </a>
+          <span class="legmeta-txt">Jurisdiction · National</span>
+        </div>
+      </article>
+
+    </div><!-- /legcards -->
+
+      <!-- Animated visual (right column) -->
+      <div class="leg-visual">
+        <div class="lv-orb"></div>
+        <div class="lv-doc doc1">
+          <div class="lv-doc-bar b1"></div>
+          <div class="lv-doc-bar b2"></div>
+          <div class="lv-doc-bar b3"></div>
+          <div class="lv-doc-chip green">PUBLIC</div>
+        </div>
+        <div class="lv-doc doc2">
+          <div class="lv-doc-bar b1"></div>
+          <div class="lv-doc-bar b2"></div>
+          <div class="lv-doc-bar b3"></div>
+          <div class="lv-doc-chip amber">INTERNAL</div>
+        </div>
+        <div class="lv-shield">
+          <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 3l8 4v5c0 5-3.5 8.5-8 9-4.5-.5-8-4-8-9V7l8-4z"/>
+            <polyline points="9 12 11 14 15 10"/>
+          </svg>
+        </div>
+        <div class="lv-tag tag1">✓ PDPA Compliant</div>
+        <div class="lv-tag tag2">⚖ Governance</div>
+        <div class="lv-tag tag3">🔒 Secure</div>
+        <svg class="lv-lines" viewBox="0 0 300 260" fill="none">
+          <path d="M150 130 Q90 80 50 65"  stroke="#bfe3cc" stroke-width="1" stroke-dasharray="4 4" opacity="0.6"/>
+          <path d="M150 130 Q210 80 250 55" stroke="#bfe3cc" stroke-width="1" stroke-dasharray="4 4" opacity="0.6"/>
+          <path d="M150 130 Q70 175 40 205" stroke="#bfe3cc" stroke-width="1" stroke-dasharray="4 4" opacity="0.4"/>
+        </svg>
+      </div>
+
+    </div><!-- /grid wrapper -->
+  </div>
+</section>
+
+<script>
+  function filterCards(btn) {
+    document.querySelectorAll('.leg-filter').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    const f = btn.dataset.f;
+    document.querySelectorAll('#legcards .legcard').forEach(c => {
+      const tags = c.dataset.tags || '';
+      c.style.display = (f === 'all' || tags.split(' ').includes(f)) ? '' : 'none';
+    });
+  }
+</script>
+
+</body>
+</html>
